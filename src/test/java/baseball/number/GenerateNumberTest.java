@@ -12,6 +12,7 @@ public class GenerateNumberTest {
     @Test
     void generate_3_number(){
         Number number = new Number();
+        number.generateNumbers(3);
         assertThat(number.getSize()).isEqualTo(GENERATE_NUMBER_COUNT);
 
     }

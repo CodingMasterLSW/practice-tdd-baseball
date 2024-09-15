@@ -6,15 +6,13 @@ import java.util.List;
 
 public class Number {
 
-    private static final int NUMBER_COUNT = 3;
-
-    private List<Integer> numbers = new ArrayList<>();
+    private List<Integer> numbers;
 
     public Number(){
-        generateNumbers(NUMBER_COUNT);
+        this.numbers = new ArrayList<>();
     }
 
-    private void generateNumbers(int count){
+    public void generateNumbers(int count){
         for(int i=0; i<count; i++) {
             numbers.add(Randoms.pickNumberInRange(0, 9));
         }
