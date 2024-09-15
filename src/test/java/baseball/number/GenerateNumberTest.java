@@ -6,14 +6,15 @@ import org.junit.jupiter.api.Test;
 
 public class GenerateNumberTest {
 
+    private final int GENERATE_NUMBER_COUNT = 3;
+
     @DisplayName("숫자 3개 생성하기")
     @Test
     void generate_3_number(){
         Number number = new Number();
-        number.generateNumbers();
-        assertThat(number.getSize()).isEqualTo(3);
+        number.generateNumbers(GENERATE_NUMBER_COUNT);
+        assertThat(number.getSize()).isEqualTo(GENERATE_NUMBER_COUNT);
 
     }
-
 
 }

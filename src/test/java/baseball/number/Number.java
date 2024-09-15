@@ -8,8 +8,8 @@ public class Number {
 
     private List<Integer> numbers = new ArrayList<>();
 
-    public void generateNumbers(){
-        for(int i=0; i<3; i++) {
+    public void generateNumbers(int count){
+        for(int i=0; i<count; i++) {
             numbers.add(Randoms.pickNumberInRange(0, 9));
         }
     }
