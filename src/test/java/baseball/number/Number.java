@@ -13,12 +13,21 @@ public class Number {
     }
 
     public void generateNumbers(int count){
-        for(int i=0; i<count; i++) {
-            numbers.add(Randoms.pickNumberInRange(0, 9));
+        int cnt = 0;
+        while(cnt<count){
+            int number = Randoms.pickNumberInRange(0,9);
+            if(numbers.contains(number)){
+                continue;
+            }
+            numbers.add(number);
+            cnt++;
         }
     }
 
     public int getSize() {
         return numbers.size();
+    }
+    public List<Integer> getNumbers(){
+        return numbers;
     }
 }
