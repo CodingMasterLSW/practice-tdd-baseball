@@ -9,6 +9,7 @@ public class UserNumber {
     private List<Integer> userNumbers = new ArrayList<>();
 
     public void inputUserNum(String s) {
+        validation(s);
         for (int i = 0; i < s.length(); i++) {
             userNumbers.add(s.charAt(i) - '0');
         }
@@ -16,5 +17,11 @@ public class UserNumber {
 
     public List<Integer> getUserNumbers() {
         return userNumbers;
+    }
+
+    private void validation(String s){
+        if(s.length()!=3){
+            throw new IllegalArgumentException();
+        }
     }
 }
