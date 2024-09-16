@@ -9,6 +9,7 @@ import java.util.Set;
 public class UserNumber {
 
     private List<Integer> userNumbers = new ArrayList<>();
+    private final int user_number_length = 3;
 
     public void inputUserNum(String s) {
         validation(s);
@@ -27,7 +28,7 @@ public class UserNumber {
     }
 
     private void isValid_Length(String s){
-        if(s.length() != 3){
+        if(s.length() != user_number_length){
             throw new InvalidNumberLengthException();
         }
     }
