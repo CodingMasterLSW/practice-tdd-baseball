@@ -26,7 +26,7 @@ public class OutputView {
     }
 
     public void gameResultMessage(int[] arr) {
-        if (arr[0] == 0) {
+        if (arr[0] == 0 && arr[0] != 3) {
             System.out.printf(NOT_CONTAINS_BALL_MESSAGE, arr[1]);
             return;
         }
