@@ -22,9 +22,17 @@ public class UserNumber {
     }
 
     private void validation(String s) {
-        if (s.length() != 3) {
+        isValid_Length(s);
+        validateUniqueDigits(s);
+    }
+
+    private void isValid_Length(String s){
+        if(s.length() != 3){
             throw new InvalidNumberLengthException();
         }
+    }
+
+    private void validateUniqueDigits(String s){
         Set<Integer> tmpSet = new HashSet<>();
         for (char ch : s.toCharArray()) {
             if (!Character.isDigit(ch)) {
@@ -35,5 +43,7 @@ public class UserNumber {
             }
             tmpSet.add(ch-'0');
         }
+
     }
+
 }
