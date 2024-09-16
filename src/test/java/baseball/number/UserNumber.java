@@ -11,6 +11,9 @@ public class UserNumber {
     public void inputUserNum(String s) {
         validation(s);
         for (int i = 0; i < s.length(); i++) {
+            if(userNumbers.contains(s.charAt(i)-'0')){
+                throw new IllegalArgumentException();
+            }
             userNumbers.add(s.charAt(i) - '0');
         }
     }

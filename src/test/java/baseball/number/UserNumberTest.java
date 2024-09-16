@@ -39,6 +39,16 @@ public class UserNumberTest {
         assertThrows(IllegalArgumentException.class, () -> assertTest("78@"));
     }
 
+    @DisplayName("중복된 숫자가 있을 경우 예외처리 발생")
+    @Test
+    void contains_equals_number(){
+        assertThrows(IllegalArgumentException.class, () -> assertTest("111"));
+        assertThrows(IllegalArgumentException.class, () -> assertTest("122"));
+        assertThrows(IllegalArgumentException.class, () -> assertTest("992"));
+        assertThrows(IllegalArgumentException.class, () -> assertTest("088"));
+        assertThrows(IllegalArgumentException.class, () -> assertTest("101"));
+    }
+
     private UserNumber assertTest(String s){
         UserNumber userNumber = new UserNumber();
         userNumber.inputUserNum(s);
