@@ -1,9 +1,10 @@
 package baseball.number;
 
 import baseball.exception.*;
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class UserNumber {
 
@@ -12,9 +13,6 @@ public class UserNumber {
     public void inputUserNum(String s) {
         validation(s);
         for (int i = 0; i < s.length(); i++) {
-            if(userNumbers.contains(s.charAt(i)-'0')){
-                throw new DuplicateNumberException();
-            }
             userNumbers.add(s.charAt(i) - '0');
         }
     }
@@ -23,14 +21,19 @@ public class UserNumber {
         return userNumbers;
     }
 
-    private void validation(String s){
-        if(s.length()!=3){
+    private void validation(String s) {
+        if (s.length() != 3) {
             throw new InvalidNumberLengthException();
         }
-        for(char ch : s.toCharArray()){
-            if(!Character.isDigit(ch)){
+        Set<Integer> tmpSet = new HashSet<>();
+        for (char ch : s.toCharArray()) {
+            if (!Character.isDigit(ch)) {
                 throw new InvalidDigitException();
             }
+            if(tmpSet.contains(ch-'0')){
+                throw new DuplicateNumberException();
+            }
+            tmpSet.add(ch-'0');
         }
     }
 }
