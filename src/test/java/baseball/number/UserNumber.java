@@ -23,5 +23,10 @@ public class UserNumber {
         if(s.length()!=3){
             throw new IllegalArgumentException();
         }
+        for(char ch : s.toCharArray()){
+            if(!Character.isDigit(ch)){
+                throw new IllegalArgumentException();
+            }
+        }
     }
 }

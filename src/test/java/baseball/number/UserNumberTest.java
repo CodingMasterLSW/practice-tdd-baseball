@@ -29,9 +29,45 @@ public class UserNumberTest {
     @DisplayName("3자리가 아닐 경우 예외처리 발생")
     @Test
     void if_not_3_digit_throw_exception(){
-        UserNumber userNumber = new UserNumber();
+        UserNumber userNumber1 = new UserNumber();
         assertThrows(IllegalArgumentException.class, () -> {
-            userNumber.inputUserNum("1234");
+            userNumber1.inputUserNum("1234");
+        });
+
+        UserNumber userNumber2 = new UserNumber();
+        assertThrows(IllegalArgumentException.class, () -> {
+            userNumber2.inputUserNum("12");
+        });
+
+        UserNumber userNumber3 = new UserNumber();
+        assertThrows(IllegalArgumentException.class, () -> {
+            userNumber3.inputUserNum("1");
+        });
+
+        UserNumber userNumber4 = new UserNumber();
+        assertThrows(IllegalArgumentException.class, () -> {
+            userNumber4.inputUserNum("");
         });
     }
+
+    @DisplayName("0~9의 숫자가 아닐 경우 예외처리 발생")
+    @Test
+    void not_between_0_9_number(){
+        UserNumber userNumber1 = new UserNumber();
+        assertThrows(IllegalArgumentException.class, () -> {
+            userNumber1.inputUserNum("aaa");
+        });
+
+        UserNumber userNumber2 = new UserNumber();
+        assertThrows(IllegalArgumentException.class, () -> {
+            userNumber2.inputUserNum("12a");
+        });
+
+        UserNumber userNumber3 = new UserNumber();
+        assertThrows(IllegalArgumentException.class, () -> {
+            userNumber3.inputUserNum("78@");
+        });
+
+    }
+
 }
